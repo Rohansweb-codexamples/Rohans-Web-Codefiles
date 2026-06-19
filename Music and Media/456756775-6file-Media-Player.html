@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Music Player</title>
+    <style>
+        /* ========================================================
+           1. QUICK CONFIGURATION: CHANGE YOUR COLORS & GRADIENTS HERE
+           ======================================================== */
+        :root {
+            /* Background colors */
+            --body-bg-color: #0f111a;      /* Main background of the whole player section */
+            --card-bg-color: #1a1d29;      /* Background of each individual track card */
+            
+            /* Text colors */
+            --title-text-color: #ffffff;   /* Color for the Track Title */
+            --artist-text-color: #94a3b8;  /* Color for the Artist / Description */
+            
+            /* Modern Gradient (Used for card highlights and subtle borders) */
+            --accent-gradient: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+            
+            /* Corner roundedness */
+            --card-radius: 16px;
+        }
+
+        /* ========================================================
+           2. PLAYER STYLING (Do not change unless editing layout)
+           ======================================================== */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--body-bg-color);
+            margin: 0;
+            padding: 20px;
+        }
+        .player-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .track-card {
+            background-color: var(--card-bg-color);
+            border-radius: var(--card-radius);
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        /* Top border highlight effect using the gradient */
+        .track-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            border-top-left-radius: var(--card-radius);
+            border-top-right-radius: var(--card-radius);
+            background: var(--accent-gradient);
+        }
+        .track-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+        .track-info {
+            margin-bottom: 20px;
+        }
+        .track-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin: 0 0 6px 0;
+            color: var(--title-text-color);
+            letter-spacing: -0.025em;
+        }
+        .track-artist {
+            font-size: 0.9rem;
+            margin: 0;
+            color: var(--artist-text-color);
+            font-weight: 500;
+        }
+        audio {
+            width: 100%;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="player-grid">
+
+        <!-- ========================================================
+           3. TRACK LIST: REPLACE THE TEXT & AUDIO LINKS HERE
+           ======================================================== -->
+
+        <!-- Track 1 -->
+        <div class="track-card">
+            <div class="track-info">
+                <p class="track-title">First Song Title</p>
+                <p class="track-artist">Artist Name</p>
+            </div>
+            <audio controls preload="none">
+                <source src="https://soundhelix.com" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <!-- Track 2 -->
+        <div class="track-card">
+            <div class="track-info">
+                <p class="track-title">Second Song Title</p>
+                <p class="track-artist">Artist Name</p>
+            </div>
+            <audio controls preload="none">
+                <source src="https://soundhelix.com" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <!-- Track 3 -->
+        <div class="track-card">
+            <div class="track-info">
+                <p class="track-title">Third Song Title</p>
+                <p class="track-artist">Artist Name</p>
+            </div>
+            <audio controls preload="none">
+                <source src="https://soundhelix.com" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <!-- Track 4 -->
+        <div class="track-card">
+            <div class="track-info">
+                <p class="track-title">Fourth Song Title</p>
+                <p class="track-artist">Artist Name</p>
+            </div>
+            <audio controls preload="none">
+                <source src="https://soundhelix.com" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <!-- Track 5 -->
+        <div class="track-card">
+            <div class="track-info">
+                <p class="track-title">Fifth Song Title</p>
+                <p class="track-artist">Artist Name</p>
+            </div>
+            <audio controls preload="none">
+                <source src="https://soundhelix.com" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <!-- Track 6 -->
+        <div class="track-card">
+            <div class="track-info">
+                <p class="track-title">Sixth Song Title</p>
+                <p class="track-artist">Artist Name</p>
+            </div>
+            <audio controls preload="none">
+                <source src="https://soundhelix.com" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+    </div>
+
+    <script>
+        // Stop other tracks from playing when a new one starts
+        const players = document.querySelectorAll('audio');
+        players.forEach(player => {
+            player.addEventListener('play', () => {
+                players.forEach(otherPlayer => {
+                    if (otherPlayer !== player) {
+                        otherPlayer.pause();
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
