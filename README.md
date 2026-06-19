@@ -18,7 +18,7 @@ This repository contains a collection of open-source web resources, including:
 
 Everything shared in this repository is completely free to use. You can copy, modify, and distribute the code snippets in your personal or commercial web projects. 
 
-*No strict attribution is required, but a shoutout to Rohan's Web is always appreciated!*
+
 
 
 
